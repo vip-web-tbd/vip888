@@ -4,80 +4,103 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CAHUB-vip</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+        header {
+            background-color: #ffcc00;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+        }
+        header .circle-image {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto;
+            display: block;
+            border: 3px solid white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        header h1 {
+            margin: 10px 0;
+            font-size: 24px;
+        }
+        .card-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 15px;
+            padding: 20px;
+        }
+        .card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.2s;
+        }
+        .card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+        .card h3 {
+            font-size: 18px;
+            margin: 10px 0;
+            color: #333;
+        }
+        .card p {
+            margin: 0 10px 10px;
+            font-size: 14px;
+            color: #555;
+        }
+        .card a {
+            display: inline-block;
+            margin: 10px;
+            padding: 8px 15px;
+            background-color: #ff5722;
+            color: white;
+            font-size: 14px;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        .card a:hover {
+            background-color: #e64a19;
+        }
+        .card:hover {
+            transform: scale(1.05);
+        }
+        .card .stats {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            font-size: 14px;
+            color: #666;
+            border-top: 1px solid #f0f0f0;
+        }
+        .card .stats span {
+            display: flex;
+            align-items: center;
+        }
+        .card .stats span img {
+            width: 18px;
+            height: 18px;
+            margin-right: 5px;
+        }
+        .like-button {
+            cursor: pointer;
+            color: #ff5722;
+            font-weight: bold;
+        }
+    </style>
 </head>
-<style>
-    body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f5f5f5;
-}
-header {
-    background-color: #ffcc00;
-    color: white;
-    text-align: center;
-    padding: 20px 0;
-}
-header .circle-image {
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    object-fit: cover;
-    margin: 0 auto;
-    display: block;
-    border: 3px solid white;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-header h1 {
-    margin: 10px 0;
-    font-size: 24px;
-}
-.card-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 15px;
-    padding: 20px;
-}
-.card {
-    background-color: white;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    transition: transform 0.2s;
-}
-.card img {
-    width: 100%;
-    height: 180px;
-    object-fit: cover;
-}
-.card h3 {
-    font-size: 18px;
-    margin: 10px 0;
-    color: #333;
-}
-.card p {
-    margin: 0 10px 10px;
-    font-size: 14px;
-    color: #555;
-}
-.card a {
-    display: inline-block;
-    margin: 10px;
-    padding: 8px 15px;
-    background-color: #ff5722;
-    color: white;
-    font-size: 14px;
-    text-decoration: none;
-    border-radius: 5px;
-}
-.card a:hover {
-    background-color: #e64a19;
-}
-.card:hover {
-    transform: scale(1.05);
-}
-</style>
 <body>
     <header>
         <img src="https://img2.pic.in.th/pic/1000049084.jpg" alt="DOGDEV HUB Cover" class="circle-image">
@@ -85,47 +108,142 @@ header h1 {
     </header>
 
     <div class="card-container">
-        <div class="card">
+        <div class="card" data-id="card1">
             <img src="https://img2.pic.in.th/pic/1000051407.jpg" alt="เเตงโม">
             <h3>เเตงโม 🍉</h3>
             <p>🔥🔥🔥</p>
-            <a href="https://drive.google.com/file/d/1tFAlDcHMsJESPU30ovAvZMwFq1F14mgS/view?usp=drivesdk" target="_blank">ดูคลิป</a>
+            <a href="https://drive.google.com/file/d/1tFAlDcHMsJESPU30ovAvZMwFq1F14mgS/view?usp=drivesdk" target="_blank" onclick="incrementView('card1')">ดูคลิป</a>
+            <div class="stats">
+                <span><img src="https://img5.pic.in.th/file/secure-sv1/1000057044.jpg" alt="Views"> <span class="views-count">0</span> ดู</span>
+                <span class="like-button" onclick="incrementLike('card1')">❤️ <span class="likes-count">0</span></span>
+            </div>
         </div>
 
-        <div class="card">
+        <div class="card" data-id="card2">
             <img src="https://img2.pic.in.th/pic/1000051413.jpg" alt="เฮลิคอปเตอร์">
             <h3>เฮลิคอปเตอร์ 🚁</h3>
             <p>🔥🔥🔥</p>
-            <a href="https://drive.google.com/file/d/19aEm79x9llqMADrFynzdzTfISNt-CVEb/view?usp=drivesdk" target="_blank">ดูคลิป</a>
+            <a href="https://drive.google.com/file/d/19aEm79x9llqMADrFynzdzTfISNt-CVEb/view?usp=drivesdk" target="_blank" onclick="incrementView('card2')">ดูคลิป</a>
+            <div class="stats">
+                <span><img src="https://img5.pic.in.th/file/secure-sv1/1000057044.jpg" alt="Views"> <span class="views-count">0</span> ดู</span>
+                <span class="like-button" onclick="incrementLike('card2')">❤️ <span class="likes-count">0</span></span>
+            </div>
         </div>
 
-        <div class="card">
-            <img src="https://img5.pic.in.th/file/secure-sv1/1000051456.jpg" alt="Placeholder">
+        <div class="card" data-id="card3">
+            <img src="https://img5.pic.in.th/file/secure-sv1/1000057042.jpg" alt="คลิปใหม่">
             <h3>คลิปใหม่</h3>
             <p>🔥🔥🔥</p>
-            <a href="https://drive.google.com/file/d/1vWqYdx4YJTqU0ZsJl2tVdt4l9tBbgNcT/view?usp=drivesdk:" target="_blank">ดูคลิป</a>
-        </div>
-        
-        <div class="card">
-            <img src="https://img5.pic.in.th/file/secure-sv1/1000056957.jpg" alt="Placeholder">
-            <h3>คลิปใหม่</h3>
-            <p>🔥🔥🔥</p>
-            <a href="https://files.fm/u/2yukqm9q5n#/view/d5szvfy38t" target="_blank">ดูคลิป</a>
+            <a href="https://drive.google.com/file/d/1z5dPm7FA_M0hjIPe-hG-dpz8uPtFX8Oh/view?usp=drivesdk" target="_blank" onclick="incrementView('card3')">ดูคลิป</a>
+            <div class="stats">
+                <span><img src="https://img5.pic.in.th/file/secure-sv1/1000057044.jpg" alt="Views"> <span class="views-count">0</span> ดู</span>
+                <span class="like-button" onclick="incrementLike('card3')">❤️ <span class="likes-count">0</span></span>
+            </div>
         </div>
 
-        <div class="card">
-            <img src="https://img2.pic.in.th/pic/1000056953.jpg" alt="Placeholder">
+<div class="card" data-id="card4">
+            <img src="https://img5.pic.in.th/file/secure-sv1/1000057043.jpg" alt="คลิปใหม่">
             <h3>คลิปใหม่</h3>
             <p>🔥🔥🔥</p>
-            <a href="https://files.fm/f/z5fzxnrzub" target="_blank">ดูคลิป</a>
+            <a href="https://drive.google.com/file/d/1z8xUjTLICBzWJM0OA1WuSaWDJsrKiIQY/view?usp=drivesdk" target="_blank" onclick="incrementView('card4')">ดูคลิป</a>
+            <div class="stats">
+                <span><img src="https://img5.pic.in.th/file/secure-sv1/1000057044.jpg" alt="Views"> <span class="views-count">0</span> ดู</span>
+                <span class="like-button" onclick="incrementLike('card4')">❤️ <span class="likes-count">0</span></span>
+            </div>
+</div>
+
+        <div class="card" data-id="card5">
+            <img src="https://img5.pic.in.th/file/secure-sv1/1000051456.jpg" alt="คลิปใหม่">
+            <h3>คลิปใหม่</h3>
+            <p>🔥🔥🔥</p>
+            <a href="https://drive.google.com/file/d/1vWqYdx4YJTqU0ZsJl2tVdt4l9tBbgNcT/view?usp=drivesdk" target="_blank" onclick="incrementView('card5')">ดูคลิป</a>
+            <div class="stats">
+                <span><img src="https://img5.pic.in.th/file/secure-sv1/1000057044.jpg" alt="Views"> <span class="views-count">0</span> ดู</span>
+                <span class="like-button" onclick="incrementLike('card5')">❤️ <span class="likes-count">0</span></span>
+            </div>
         </div>
 
-        <div class="card">
-            <img src="https://img5.pic.in.th/file/secure-sv1/1000056959.jpg" alt="Placeholder">
+
+
+<div class="card" data-id="card6">
+            <img src="https://img5.pic.in.th/file/secure-sv1/1000056957.jpg" alt="คลิปใหม่">
             <h3>คลิปใหม่</h3>
             <p>🔥🔥🔥</p>
-            <a href="https://files.fm/u/73k7uyfaqx#/view/jqt2gvft2m" target="_blank">ดูคลิป</a>
+            <a href="https://files.fm/u/2yukqm9q5n#/view/d5szvfy38t" target="_blank" onclick="incrementView('card6')">ดูคลิป</a>
+            <div class="stats">
+                <span><img src="https://img5.pic.in.th/file/secure-sv1/1000057044.jpg" alt="Views"> <span class="views-count">0</span> ดู</span>
+                <span class="like-button" onclick="incrementLike('card6')">❤️ <span class="likes-count">0</span></span>
+            </div>
         </div>
+
+
+
+
+<div class="card" data-id="card7">
+            <img src="https://img2.pic.in.th/pic/1000056953.jpg" alt="คลิปใหม่">
+            <h3>คลิปใหม่</h3>
+            <p>🔥🔥🔥</p>
+            <a href="https://files.fm/f/z5fzxnrzub" target="_blank" onclick="incrementView('card7')">ดูคลิป</a>
+            <div class="stats">
+                <span><img src="https://img5.pic.in.th/file/secure-sv1/1000057044.jpg" alt="Views"> <span class="views-count">0</span> ดู</span>
+                <span class="like-button" onclick="incrementLike('card7')">❤️ <span class="likes-count">0</span></span>
+            </div>
+        </div>
+
+
+
+
+<div class="card" data-id="card8">
+            <img src="https://img5.pic.in.th/file/secure-sv1/1000056959.jpg" alt="คลิปใหม่">
+            <h3>คลิปใหม่</h3>
+            <p>🔥🔥🔥</p>
+            <a href="https://files.fm/u/73k7uyfaqx#/view/jqt2gvft2m" target="_blank" onclick="incrementView('card8')">ดูคลิป</a>
+            <div class="stats">
+                <span><img src="https://img5.pic.in.th/file/secure-sv1/1000057044.jpg" alt="Views"> <span class="views-count">0</span> ดู</span>
+                <span class="like-button" onclick="incrementLike('card8')">❤️ <span class="likes-count">0</span></span>
+            </div>
+</div>
     </div>
+
+    <script>
+        // Load saved data from LocalStorage
+        document.addEventListener('DOMContentLoaded', () => {
+            const cards = document.querySelectorAll('.card');
+            cards.forEach(card => {
+                const cardId = card.getAttribute('data-id');
+                const savedData = JSON.parse(localStorage.getItem(cardId)) || { views: 0, likes: 0 };
+
+                // Update UI
+                card.querySelector('.views-count').textContent = savedData.views;
+                card.querySelector('.likes-count').textContent = savedData.likes;
+            });
+        });
+
+        function incrementView(cardId) {
+            const card = document.querySelector(`.card[data-id="${cardId}"]`);
+            const viewsCountElement = card.querySelector('.views-count');
+            let viewsCount = parseInt(viewsCountElement.textContent, 10);
+            viewsCount++;
+            viewsCountElement.textContent = viewsCount;
+
+            saveData(cardId, { views: viewsCount });
+        }
+
+        function incrementLike(cardId) {
+            const card = document.querySelector(`.card[data-id="${cardId}"]`);
+            const likesCountElement = card.querySelector('.likes-count');
+            let likesCount = parseInt(likesCountElement.textContent, 10);
+            likesCount++;
+            likesCountElement.textContent = likesCount;
+
+            saveData(cardId, { likes: likesCount });
+        }
+
+        function saveData(cardId, newData) {
+            const savedData = JSON.parse(localStorage.getItem(cardId)) || { views: 0, likes: 0 };
+            const updatedData = { ...savedData, ...newData };
+            localStorage.setItem(cardId, JSON.stringify(updatedData));
+        }
+    </script>
 </body>
 </html>
